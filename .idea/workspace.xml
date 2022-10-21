@@ -4,26 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="762a4c64-ef1e-4f63-830e-15eab50429f6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APDescription.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MTPs-Main-Container.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Agents/FunctionAgent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AgentsFactory/AgentDescription.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AgentsFactory/AgentFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Behaviours/ReceiveCountingRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Behaviours/ReceiveInitCountingMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Behaviours/SendCountingRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Behaviours/TransferInitCounting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FunctionInterfaces/OptimizationFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+    <list default="true" id="762a4c64-ef1e-4f63-830e-15eab50429f6" name="Changes" comment="Initial commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/AdditionalClasses/ValuesContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Mail/Classes/CountingReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Mail/Classes/CountingSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Mail/Interfaces/Receiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Mail/Interfaces/Sender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Agents/FunctionAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Agents/FunctionAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Behaviours/ReceiveCountingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Behaviours/ReceiveCountingRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Behaviours/SendCountingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Behaviours/SendCountingRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,22 +40,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "B:/Java/Labs/LR2/src/main/java/AgentsFactory"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;B:/Java/FromJavaCoreBook&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="B:\Java\Labs\LR2\src\main\java\AgentsFactory" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Application">
+    <configuration name="Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="LR2" />
       <option name="PROGRAM_PARAMETERS" value="-services jade.core.messaging.TopicManagementService" />
@@ -73,6 +63,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Mail.Classes.Test" />
+      <module name="LR2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Mail.Classes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -82,8 +90,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665862328411</updated>
-      <workItem from="1665862329714" duration="8285000" />
+      <workItem from="1665862329714" duration="8309000" />
+      <workItem from="1666092068826" duration="52000" />
+      <workItem from="1666380708362" duration="11143000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1666092025747</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666092025748</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,5 +117,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
 </project>
