@@ -1,7 +1,9 @@
 package Behaviours;
 
+import AdditionalClasses.JadePatternProvider;
 import AdditionalClasses.ValuesContainer;
 import Agents.FunctionAgent;
+import Exceptions.InitiatorCantFindMaximum;
 import FunctionInterfaces.OptimizationFunction;
 import Mail.Classes.CountingReceiver;
 import Mail.Classes.CountingSender;
@@ -13,13 +15,14 @@ import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 
 import java.awt.geom.CubicCurve2D;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Отправка запросов на расчет значений функций других агентов, принятия ответов и оценка полученных результатов.
  * Fields:
  * - myAgent - агент с данным поведением
- * - topic - топик
  * - tmpl - шаблон сообщения типа INFORM
  * - requestSender - составитель сообщения на  отправку запроса
  * - infoReceiver - парсер принимаемых ответов от агентов
@@ -27,16 +30,14 @@ import java.util.HashMap;
  */
 public class SendCountingRequest extends TickerBehaviour {
     private FunctionAgent myAgent;
-    private AID topic;
     private MessageTemplate tmpl;
     private Sender requestSender;
     private Receiver infoReceiver;
     private OptimizationFunction func;
 
-    public SendCountingRequest(FunctionAgent a, long period, AID topic, OptimizationFunction func) {
+    public SendCountingRequest(FunctionAgent a, long period, OptimizationFunction func) {
         super(a, period);
         myAgent = a;
-        this.topic = topic;
         this.func = func;
     }
 
@@ -54,11 +55,15 @@ public class SendCountingRequest extends TickerBehaviour {
     @Override
     protected void onTick() {
         // Если агент является инициатором расчета
-        if (myAgent.isInitiator()) {
-            // Посылаем запрос на расчет в топик
+        if (myAgent.isInitiator() && !myAgent.isFinished()) {
+            // Посылаем запрос на расчет другим агентам
             ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
-            msg.addReceiver(topic);
-
+            List<AID> agents = JadePatternProvider.getServiceProviders(myAgent, "Counter");
+            for (AID agent: agents) {
+                if (!agent.getLocalName().equals(myAgent.getLocalName())) {
+                    msg.addReceiver(agent);
+                }
+            }
             double curX = myAgent.getCurX();
             double delta = myAgent.getDelta();
             msg.setContent(
@@ -74,14 +79,16 @@ public class SendCountingRequest extends TickerBehaviour {
                 ACLMessage response = getAgent().receive(tmpl);
                 if (response != null) {
                     try {
-                        System.out.println("---test---");
-                        System.out.println(response.getContent());
+                        System.out.println(getAgent().getLocalName() + " " + response.getContent() + " from " + response.getSender().getLocalName());
                         HashMap<String, Double> msgVals = infoReceiver.parse(response.getContent());
                         container.addColumn(new double[]{
                                 msgVals.get("f(curX-delta)"),
                                 msgVals.get("f(curX)"),
                                 msgVals.get("f(curX+delta)"),
                         });
+                        /**
+                         * НУЖНО ДОБАВИТЬ ТАЙМЕР НА СЛУЧАЙ ТУПНЯКА и выбрасывать ошибку
+                         */
                         responsesCount++;
                     } catch (NumberFormatException e) {
                         System.out.println(e.getMessage());
@@ -94,8 +101,34 @@ public class SendCountingRequest extends TickerBehaviour {
                     func.execute(curX-delta),
                     func.execute(curX),
                     func.execute(curX+delta)});
-
-            myAgent.dismayedInitiator();
+            System.out.println("----------------");
+            int bestResultNumber = container.getBestResultNumber();
+            switch (bestResultNumber) {
+                case 0:
+                    myAgent.setCurX(curX - delta);
+                    myAgent.dismayedInitiator();
+                    break;
+                case 1:
+                    if (delta < myAgent.getEps()) {
+                        myAgent.setFinished(true);  // Если считать уже некуда -> останавливаем расчет
+                        System.err.println("Best X value is " + curX);
+                        /**
+                         * Разослать сообщение агентам о необходимости завершить расчеты
+                         */
+                    } else {
+                        myAgent.setDelta(delta / 2);
+                        myAgent.dismayedInitiator();
+                    }
+                    break;
+                case 2:
+                    myAgent.setCurX(curX + delta);
+                    myAgent.dismayedInitiator();
+                    break;
+                default:
+                    throw new InitiatorCantFindMaximum("Получено невозможное значение номера лучшего результата.");
+            }
+        } else {
+            block();
         }
     }
 }

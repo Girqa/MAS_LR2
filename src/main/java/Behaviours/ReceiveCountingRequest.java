@@ -1,5 +1,6 @@
 package Behaviours;
 
+import Agents.FunctionAgent;
 import FunctionInterfaces.OptimizationFunction;
 import Mail.Classes.CountingSender;
 import Mail.Classes.CountingReceiver;
@@ -15,14 +16,14 @@ import java.util.HashMap;
 /**
  * Принятие запроса от другого агента на расчет значения функции, заданной агенту.
  * Fields:
+ * - myAgent - агент
  * - func - оптимизируемая функция
- * - topic - топик
  * - reqTmpl - шаблон принятия сообщений типа REQUEST
  * - msgReceiver - обработчик сообщений
  */
 public class ReceiveCountingRequest extends Behaviour {
+    private FunctionAgent myAgent;
     private OptimizationFunction func;
-    private AID topic;
     private MessageTemplate reqTmpl;
     private Receiver msgReceiver;
     private Sender msgSender;
@@ -31,9 +32,9 @@ public class ReceiveCountingRequest extends Behaviour {
      * Параметризированный конструктор поведения
      * @param func - рассчетная функция
      */
-    public ReceiveCountingRequest(AID topic, OptimizationFunction func) {
-        this.topic = topic;
-        this.func = (d -> -d*d + 5.0);
+    public ReceiveCountingRequest(FunctionAgent myAgent, OptimizationFunction func) {
+        this.myAgent = myAgent;
+        this.func = func;
     }
 
     /**
@@ -61,11 +62,12 @@ public class ReceiveCountingRequest extends Behaviour {
         ACLMessage msg = getAgent().receive(reqTmpl);
         if (msg != null) {
             try {
-                System.out.println(getAgent().getLocalName() + " received " + msg.getContent() + " from " + msg.getSender().getLocalName());
                 // Парсим сообщение
                 HashMap<String, Double> paramsMap = msgReceiver.parse(msg.getContent());
                 double curX = paramsMap.get("curX");  // <- внимательно с именами параметра
                 double delta = paramsMap.get("delta");  // <- если меняем имя -> меняем конструктор msgReceiver
+                myAgent.setCurX(curX);
+                myAgent.setDelta(delta);
                 // Создаем сообщение типа INFORM
                 ACLMessage response = new ACLMessage(ACLMessage.INFORM);
                 AID aid = new AID(msg.getSender().getName(), true);
@@ -87,6 +89,6 @@ public class ReceiveCountingRequest extends Behaviour {
 
     @Override
     public boolean done() {
-        return false;
+        return myAgent.isFinished();
     }
 }
