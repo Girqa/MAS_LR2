@@ -18,6 +18,11 @@
             <id>tilab</id>
             <url>https://jade.tilab.com/maven/</url>
         </repository>
+
+        <repository>
+            <id>reflections</id>
+            <url>https://mvnrepository.com/artifact/org.reflections</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -32,6 +37,12 @@
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.10.2</version>
         </dependency>
     </dependencies>
 
