@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="762a4c64-ef1e-4f63-830e-15eab50429f6" name="Changes" comment="Realized launching agents via annotation.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Annotations/AutoRunnableAgent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APDescription.txt" beforeDir="false" afterPath="$PROJECT_DIR$/APDescription.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Agents/FunctionAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Agents/FunctionAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FunctionInterfaces/OptimizationFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FunctionInterfaces/OptimizationFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,15 +38,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;B:/Java/FromJavaCoreBook&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "B:/Java/Labs/LR2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="B:\Java\Labs\LR2\src\main\java\AgentsFactory" />
@@ -100,7 +94,8 @@
       <workItem from="1665862329714" duration="8309000" />
       <workItem from="1666092068826" duration="52000" />
       <workItem from="1666380708362" duration="12444000" />
-      <workItem from="1666544686418" duration="20317000" />
+      <workItem from="1666544686418" duration="20895000" />
+      <workItem from="1666618275984" duration="147000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1666092025747</created>
@@ -123,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666566768775</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Realized launching agents via annotation.">
+      <created>1666597711763</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666597711763</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
