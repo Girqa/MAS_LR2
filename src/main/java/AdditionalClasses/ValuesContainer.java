@@ -26,7 +26,7 @@ public class ValuesContainer{
     public void addColumn(double[] values) {
         if (values.length != size) {
             throw new IllegalArgumentException("Колличество элементов не соответствует размеру контэйнера!");
-        } else if (!isFull()) {
+        } else if (isFull()) {
             throw new UnsupportedOperationException("Контэйнер переполнен!");
         }
         for (int i = 0; i < size; i++) {
@@ -46,8 +46,9 @@ public class ValuesContainer{
         }
         return Arrays.stream(matrix[row]).sum();
     }
+
     public boolean isFull() {
-        return curColumn < size;
+        return curColumn >= size;
     }
 
     /**

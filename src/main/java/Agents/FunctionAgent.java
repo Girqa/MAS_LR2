@@ -46,11 +46,11 @@ public class FunctionAgent extends Agent {
         setDelta(1);
         if (this.getLocalName().endsWith("1")) {
             makeInitiator();
-            addBehaviours(100, d -> -d*d+5);
+            addBehaviours(1, d -> -d*d+5);
         } else if (this.getLocalName().endsWith("2")) {
-            addBehaviours(100, d -> 2*d+5);
+            addBehaviours(1, d -> 2*d+5);
         } else {
-            addBehaviours(100, Math::sin);
+            addBehaviours(1, Math::sin);
         }
     }
 

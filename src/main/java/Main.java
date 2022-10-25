@@ -20,7 +20,7 @@ public class Main {
             AutoRunnableAgent anno = annotatedClass.getAnnotation(AutoRunnableAgent.class);
             System.out.println(annotatedClass.getPackageName());
             for (int i = 0; i < anno.count(); i++) {
-                agents.put(anno.name()+(i+1), "Agents.FunctionAgent");
+                agents.put(anno.name()+(i+1), "NewRealization.FunctionAgent");
             }
         }
 

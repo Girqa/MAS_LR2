@@ -1,12 +1,10 @@
-package Behaviours;
+package NewRealization.Behaviours.SubBehaviours;
 
-import Agents.FunctionAgent;
 import FunctionInterfaces.OptimizationFunction;
-import Mail.Classes.CountingSender;
 import Mail.Classes.CountingReceiver;
+import Mail.Classes.CountingSender;
 import Mail.Interfaces.Receiver;
 import Mail.Interfaces.Sender;
-import jade.core.AID;
 import jade.core.behaviours.Behaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
@@ -16,13 +14,12 @@ import java.util.HashMap;
 /**
  * Принятие запроса от другого агента на расчет значения функции, заданной агенту.
  * Fields:
- * - myAgent - агент
  * - func - оптимизируемая функция
  * - reqTmpl - шаблон принятия сообщений типа REQUEST
  * - msgReceiver - обработчик сообщений
+ * - msgSender - отправщих сообщений
  */
-public class ReceiveCountingRequest extends Behaviour {
-    private FunctionAgent myAgent;
+public class ReciveRequestBehaviour extends Behaviour {
     private OptimizationFunction func;
     private MessageTemplate reqTmpl;
     private Receiver msgReceiver;
@@ -32,25 +29,18 @@ public class ReceiveCountingRequest extends Behaviour {
      * Параметризированный конструктор поведения
      * @param func - рассчетная функция
      */
-    public ReceiveCountingRequest(FunctionAgent myAgent, OptimizationFunction func) {
-        this.myAgent = myAgent;
+    public ReciveRequestBehaviour(OptimizationFunction func) {
         this.func = func;
     }
 
     /**
-     * Шаблон принятия сообщений. Принимаем только запросы.
+     * Шаблоны принятия и отправки сообщений. Принимаем только запросы.
      */
     @Override
     public void onStart() {
         super.onStart();
         reqTmpl = MessageTemplate.MatchPerformative(ACLMessage.REQUEST);
-        /*
-        Формат принимаемого сообщения "curX/delta"
-         */
-        msgReceiver = new CountingReceiver(new String[]{"curX", "delta"}, "/");
-        /*
-        Формат отправляемого сообщения "f1/f2/f3"
-         */
+        msgReceiver = new CountingReceiver(new String[]{"x", "delta"}, "/");
         msgSender = new CountingSender("/");
     }
 
@@ -64,31 +54,30 @@ public class ReceiveCountingRequest extends Behaviour {
             try {
                 // Парсим сообщение
                 HashMap<String, Double> paramsMap = msgReceiver.parse(msg.getContent());
-                double curX = paramsMap.get("curX");  // <- внимательно с именами параметра
+                double x = paramsMap.get("x");  // <- внимательно с именами параметра
                 double delta = paramsMap.get("delta");  // <- если меняем имя -> меняем конструктор msgReceiver
-                myAgent.setCurX(curX);
-                myAgent.setDelta(delta);
                 // Создаем сообщение типа INFORM
-                ACLMessage response = new ACLMessage(ACLMessage.INFORM);
-                AID aid = new AID(msg.getSender().getName(), true);
-                response.addReceiver(aid);  // Отправлять будем инициатору
+                ACLMessage reply = new ACLMessage(ACLMessage.INFORM);// Отправлять будем инициатору
+                reply.addReceiver(msg.getSender());
                 // Расчет значений
-                double y1 = func.execute(curX-delta);
-                double y2 = func.execute(curX);
-                double y3 = func.execute(curX+delta);
+                double y1 = func.execute(x-delta);
+                double y2 = func.execute(x);
+                double y3 = func.execute(x+delta);
                 // Положили результаты расчетов в сообщение
-                response.setContent(msgSender.prepareMsg(new Double[]{y1, y2, y3}));
-                getAgent().send(response);
+                String content = msgSender.prepareMsg(new Double[]{y1, y2, y3});
+                System.out.println(getAgent().getLocalName() + " sends " + content);
+                reply.setContent(content);
+                getAgent().send(reply);
             } catch (NumberFormatException ex) {
                 System.out.println("Unable to convert request value to double");
             }
         } else {
-
+            block();
         }
     }
 
     @Override
     public boolean done() {
-        return myAgent.isFinished();
+        return false;
     }
 }
