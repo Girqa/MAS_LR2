@@ -11,7 +11,7 @@ import org.reflections.Reflections;
 
 public class Main {
     public static void main(String[] args) {
-        Reflections r = new Reflections("Agents");
+        Reflections r = new Reflections("NewRealization");
 
         Map<String, String> agents =new HashMap<>();
 

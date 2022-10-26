@@ -4,20 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="762a4c64-ef1e-4f63-830e-15eab50429f6" name="Changes" comment="/">
-      <change afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/CounterBehaviour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/InitiatorBehaviour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/GetTransferRequestBehaviour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/ReciveRequestBehaviour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/SendRequestBehaviour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/TransferRequestBehaviour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/NewRealization/FunctionAgent.java" afterDir="false" />
+    <list default="true" id="762a4c64-ef1e-4f63-830e-15eab50429f6" name="Changes" comment="Added new (PERFECT) realization">
+      <change afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/CheckTransferSuccessBehaviour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APDescription.txt" beforeDir="false" afterPath="$PROJECT_DIR$/APDescription.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AdditionalClasses/ValuesContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AdditionalClasses/ValuesContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Agents/FunctionAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Agents/FunctionAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Behaviours/ReceiveCountingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Behaviours/ReceiveCountingRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/InitiatorBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/InitiatorBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/GetTransferRequestBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/GetTransferRequestBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/SendRequestBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/SendRequestBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/TransferRequestBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/TransferRequestBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NewRealization/FunctionAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewRealization/FunctionAgent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,16 +23,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="AnnotationType" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="MinWorkingVersion" />
+        <entry key="$PROJECT_DIR$" value="ChangedAgentStarting" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -114,7 +110,8 @@
       <workItem from="1666618275984" duration="376000" />
       <workItem from="1666618985134" duration="2448000" />
       <workItem from="1666644987819" duration="3300000" />
-      <workItem from="1666732555821" duration="7402000" />
+      <workItem from="1666732555821" duration="20543000" />
+      <workItem from="1666815970955" duration="31000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1666092025747</created>
@@ -151,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666618586527</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added new (PERFECT) realization">
+      <created>1666739984571</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666739984571</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,16 +178,7 @@
     <MESSAGE value="Finished all main Classes.&#10;Add new Exception InitiatorCantFindMaximum.&#10;Add new Class JadePatternProvider with few patterns from lections." />
     <MESSAGE value="Realized launching agents via annotation." />
     <MESSAGE value="/" />
-    <option name="LAST_COMMIT_MESSAGE" value="/" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Added new (PERFECT) realization" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new (PERFECT) realization" />
   </component>
 </project>

@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SendRequestBehaviour extends Behaviour {
+    private List<AID> agents;
     private ValuesContainer container;
     private Map<String, Double> values;
     private MessageTemplate tmpl;
@@ -23,8 +24,6 @@ public class SendRequestBehaviour extends Behaviour {
     private boolean finished = false;
     public SendRequestBehaviour(Map<String, Double> values) {
         this.values = values;
-        // Контейнер под ответы агентов
-        container = new ValuesContainer(3);
         // Обработчик принимаемых сообщений
         receiver = new CountingReceiver(new String[]{"f(x-delta)", "f(x)", "f(x+delta)"}, "/");
         // Обработчик отправляемых сообщений
@@ -35,11 +34,13 @@ public class SendRequestBehaviour extends Behaviour {
     public void onStart() {
         // Отправим запрос на расчет
         ACLMessage request = new ACLMessage(ACLMessage.REQUEST);
-        // Всем агентам
-        List<AID> agents = JadePatternProvider.getServiceProviders(myAgent, "Counter");
         // Создали наполнение сообщения
         String content = sender.prepareMsg(new Double[]{values.get("x"), values.get("delta")});
         request.setContent(content);
+        // Получатели запросов
+        agents = JadePatternProvider.getServiceProviders(getAgent(), "Counter");
+        // Контейнер под ответы агентов
+        container = new ValuesContainer(agents.size());
         // Добавили получателей в запрос
         agents.stream().forEach(request::addReceiver);
         getAgent().send(request);

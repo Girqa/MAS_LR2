@@ -22,7 +22,8 @@ public class FunctionAgent extends Agent {
         if (this.getLocalName().endsWith("1")) {
             Map<String, Double> values = new HashMap<>();
             values.put("x", new Random().nextDouble()*10-5);
-            values.put("delta", new Random().nextDouble()*10-5);
+            values.put("delta", new Random().nextDouble());
+            values.put("eps", 0.01);
             addBehaviour(new InitiatorBehaviour(values));
             addBehaviour(new CounterBehaviour(this, d -> -d*d+5));
         } else if (this.getLocalName().endsWith("2")) {
