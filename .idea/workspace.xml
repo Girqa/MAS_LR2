@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="762a4c64-ef1e-4f63-830e-15eab50429f6" name="Changes" comment="Added new (PERFECT) realization">
-      <change afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/CheckTransferSuccessBehaviour.java" afterDir="false" />
+    <list default="true" id="762a4c64-ef1e-4f63-830e-15eab50429f6" name="Changes" comment="Repaired ValuesContainer.&#10;Added possibility of checking TransferRequestBehaviour acceptance from GetTransferRequestBehaviour.&#10;Finished work.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AdditionalClasses/ValuesContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AdditionalClasses/ValuesContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/InitiatorBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/InitiatorBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/GetTransferRequestBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/GetTransferRequestBehaviour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/SendRequestBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/SendRequestBehaviour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/TransferRequestBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/TransferRequestBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/NewRealization/FunctionAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewRealization/FunctionAgent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +46,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;B:/Java/Labs/LR2&quot;
+    &quot;last_opened_file_path&quot;: &quot;B:/Java/MAS/Labs/LR2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -112,6 +109,12 @@
       <workItem from="1666644987819" duration="3300000" />
       <workItem from="1666732555821" duration="20543000" />
       <workItem from="1666815970955" duration="31000" />
+      <workItem from="1666816015762" duration="108000" />
+      <workItem from="1666816205292" duration="32000" />
+      <workItem from="1666872905052" duration="5905000" />
+      <workItem from="1666938926893" duration="24000" />
+      <workItem from="1667130757473" duration="2264000" />
+      <workItem from="1667221091637" duration="812000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1666092025747</created>
@@ -155,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666739984571</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Repaired ValuesContainer.&#10;Added possibility of checking TransferRequestBehaviour acceptance from GetTransferRequestBehaviour.&#10;Finished work.">
+      <created>1666816113860</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1666816113860</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +189,7 @@
     <MESSAGE value="Realized launching agents via annotation." />
     <MESSAGE value="/" />
     <MESSAGE value="Added new (PERFECT) realization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new (PERFECT) realization" />
+    <MESSAGE value="Repaired ValuesContainer.&#10;Added possibility of checking TransferRequestBehaviour acceptance from GetTransferRequestBehaviour.&#10;Finished work." />
+    <option name="LAST_COMMIT_MESSAGE" value="Repaired ValuesContainer.&#10;Added possibility of checking TransferRequestBehaviour acceptance from GetTransferRequestBehaviour.&#10;Finished work." />
   </component>
 </project>

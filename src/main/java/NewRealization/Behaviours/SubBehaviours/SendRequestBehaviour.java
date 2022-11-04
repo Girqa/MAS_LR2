@@ -30,6 +30,10 @@ public class SendRequestBehaviour extends Behaviour {
         sender = new CountingSender("/");
     }
 
+    /**
+     * searization to json
+     */
+
     @Override
     public void onStart() {
         // Отправим запрос на расчет
@@ -60,7 +64,7 @@ public class SendRequestBehaviour extends Behaviour {
                     msgVals.get("f(x)"),
                     msgVals.get("f(x+delta)"),
             });
-        } else if(!finished && container.isFull()) {
+        } else if(container.isFull()) {
             switch (container.getBestResultNumber()) {
                 case 0:  // Уменьшение х
                     values.put("x", values.get("x") - values.get("delta"));

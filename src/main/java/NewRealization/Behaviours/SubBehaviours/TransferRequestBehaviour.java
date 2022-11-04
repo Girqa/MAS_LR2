@@ -28,6 +28,9 @@ public class TransferRequestBehaviour extends OneShotBehaviour {
             System.err.println("Расчет окончен");
             System.err.println("Результат: x=" + values.get("x"));
         } else {
+            /**
+             * REMOVE IF
+             */
             // Выбираем одного агента, которому направим результат
             List<AID> agents = JadePatternProvider.getServiceProviders(myAgent, "Counter")
                     .stream()
@@ -44,7 +47,6 @@ public class TransferRequestBehaviour extends OneShotBehaviour {
             msg.addReceiver(receiverAgent);
             getAgent().send(msg);
             // Перестаем быть инициатором
-            //getAgent().removeBehaviour(initiatorBehaviour);
             System.out.println("-------");
         }
     }
