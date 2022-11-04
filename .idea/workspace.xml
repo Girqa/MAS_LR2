@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="762a4c64-ef1e-4f63-830e-15eab50429f6" name="Changes" comment="Added Interfaces with realizations:&#10;- Receiver (CountingReceiver)&#10;- Sender (CountingSender)&#10;Added POJO class:&#10;- ValuesContainer&#10;Modified Behaviours:&#10;- ReceiveCountingRequest&#10;- SendCountingRequest&#10;* Need to be finished:&#10;- SendCountingRequest (making decision about next curX and delta val)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AdditionalClasses/JadePatternProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/InitiatorCantFindMaximum.java" afterDir="false" />
+    <list default="true" id="762a4c64-ef1e-4f63-830e-15eab50429f6" name="Changes" comment="Repaired ValuesContainer.&#10;Added possibility of checking TransferRequestBehaviour acceptance from GetTransferRequestBehaviour.&#10;Finished work.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AdditionalClasses/ValuesContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AdditionalClasses/ValuesContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Agents/FunctionAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Agents/FunctionAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Behaviours/ReceiveCountingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Behaviours/ReceiveCountingRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Behaviours/ReceiveInitCountingMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Behaviours/ReceiveInitCountingMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Behaviours/SendCountingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Behaviours/SendCountingRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Behaviours/TransferInitCounting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Behaviours/TransferInitCounting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/SendRequestBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/SendRequestBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/TransferRequestBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewRealization/Behaviours/SubBehaviours/TransferRequestBehaviour.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,12 +17,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
+        <option value="AnnotationType" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="ChangedAgentStarting" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -46,10 +46,17 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;B:/Java/FromJavaCoreBook&quot;
+    &quot;last_opened_file_path&quot;: &quot;B:/Java/MAS/Labs/LR2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="New_realization.Behaviours" />
+      <recent name="Agents" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="B:\Java\Labs\LR2\src\main\java\AgentsFactory" />
     </key>
@@ -58,7 +65,6 @@
     <configuration name="Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="LR2" />
-      <option name="PROGRAM_PARAMETERS" value="-services jade.core.messaging.TopicManagementService" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -76,6 +82,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Application" />
+      <item itemvalue="Application.Test" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Test" />
@@ -93,7 +103,18 @@
       <workItem from="1665862329714" duration="8309000" />
       <workItem from="1666092068826" duration="52000" />
       <workItem from="1666380708362" duration="12444000" />
-      <workItem from="1666544686418" duration="16043000" />
+      <workItem from="1666544686418" duration="20895000" />
+      <workItem from="1666618275984" duration="376000" />
+      <workItem from="1666618985134" duration="2448000" />
+      <workItem from="1666644987819" duration="3300000" />
+      <workItem from="1666732555821" duration="20543000" />
+      <workItem from="1666815970955" duration="31000" />
+      <workItem from="1666816015762" duration="108000" />
+      <workItem from="1666816205292" duration="32000" />
+      <workItem from="1666872905052" duration="5905000" />
+      <workItem from="1666938926893" duration="24000" />
+      <workItem from="1667130757473" duration="2264000" />
+      <workItem from="1667221091637" duration="812000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1666092025747</created>
@@ -109,7 +130,42 @@
       <option name="project" value="LOCAL" />
       <updated>1666392565117</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Finished all main Classes.&#10;Add new Exception InitiatorCantFindMaximum.&#10;Add new Class JadePatternProvider with few patterns from lections.">
+      <created>1666566768775</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666566768775</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Realized launching agents via annotation.">
+      <created>1666597711763</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666597711763</updated>
+    </task>
+    <task id="LOCAL-00005" summary="/">
+      <created>1666618586527</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666618586527</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added new (PERFECT) realization">
+      <created>1666739984571</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666739984571</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Repaired ValuesContainer.&#10;Added possibility of checking TransferRequestBehaviour acceptance from GetTransferRequestBehaviour.&#10;Finished work.">
+      <created>1666816113860</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1666816113860</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,16 +185,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Added Interfaces with realizations:&#10;- Receiver (CountingReceiver)&#10;- Sender (CountingSender)&#10;Added POJO class:&#10;- ValuesContainer&#10;Modified Behaviours:&#10;- ReceiveCountingRequest&#10;- SendCountingRequest&#10;* Need to be finished:&#10;- SendCountingRequest (making decision about next curX and delta val)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Interfaces with realizations:&#10;- Receiver (CountingReceiver)&#10;- Sender (CountingSender)&#10;Added POJO class:&#10;- ValuesContainer&#10;Modified Behaviours:&#10;- ReceiveCountingRequest&#10;- SendCountingRequest&#10;* Need to be finished:&#10;- SendCountingRequest (making decision about next curX and delta val)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Finished all main Classes.&#10;Add new Exception InitiatorCantFindMaximum.&#10;Add new Class JadePatternProvider with few patterns from lections." />
+    <MESSAGE value="Realized launching agents via annotation." />
+    <MESSAGE value="/" />
+    <MESSAGE value="Added new (PERFECT) realization" />
+    <MESSAGE value="Repaired ValuesContainer.&#10;Added possibility of checking TransferRequestBehaviour acceptance from GetTransferRequestBehaviour.&#10;Finished work." />
+    <option name="LAST_COMMIT_MESSAGE" value="Repaired ValuesContainer.&#10;Added possibility of checking TransferRequestBehaviour acceptance from GetTransferRequestBehaviour.&#10;Finished work." />
   </component>
 </project>

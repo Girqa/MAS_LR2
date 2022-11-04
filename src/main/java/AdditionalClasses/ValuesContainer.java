@@ -5,18 +5,20 @@ import java.util.Arrays;
 /**
  * Класс для хранения и обработки результатов расчетов агентов.
  * Fields:
- * - size - размер матрицы результатов расчетов (матрица является квадратной
+ * - size - количество столбцов матрицы (агентов, отправляющих сообщения)
  * - matrix - матрица для хранения результатов расчетов
  * - curColumn - заполняемая колонна (нужно для инкапсуляции поведения при добавлении нового столбца)
  */
 public class ValuesContainer{
-    private int size;
+    private int rows;
+    private int columns;
     private double[][] matrix;
     private int curColumn = 0;
 
     public ValuesContainer(int sideLength) {
-        this.size = sideLength;
-        matrix = new double[sideLength][sideLength];
+        this.columns = sideLength;
+        rows = 3;
+        matrix = new double[rows][sideLength];
     }
 
     /**
@@ -24,12 +26,12 @@ public class ValuesContainer{
      * @param values
      */
     public void addColumn(double[] values) {
-        if (values.length != size) {
+        if (values.length != rows) {
             throw new IllegalArgumentException("Колличество элементов не соответствует размеру контэйнера!");
-        } else if (!isFull()) {
+        } else if (isFull()) {
             throw new UnsupportedOperationException("Контэйнер переполнен!");
         }
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < rows; i++) {
             matrix[i][curColumn] = values[i];
         }
         curColumn++;
@@ -41,13 +43,14 @@ public class ValuesContainer{
      * @return sum
      */
     public double getRowSum(int row) {
-        if (row > size) {
+        if (row > rows) {
             throw new IllegalArgumentException("Номер строки выходит за размеры контэйнера!");
         }
         return Arrays.stream(matrix[row]).sum();
     }
+
     public boolean isFull() {
-        return curColumn < size;
+        return curColumn >= columns;
     }
 
     /**
@@ -57,7 +60,7 @@ public class ValuesContainer{
     public int getBestResultNumber() {
         double maxSum = getRowSum(0);
         int bestRow = 0;
-        for (int i = 1; i < size; i++) {
+        for (int i = 1; i < rows; i++) {
             if (maxSum <= getRowSum(i)) {
                 maxSum = getRowSum(i);
                 bestRow = i;

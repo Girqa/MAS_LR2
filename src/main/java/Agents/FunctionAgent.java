@@ -2,6 +2,7 @@ package Agents;
 
 import java.lang.Math;
 import AdditionalClasses.JadePatternProvider;
+import Annotations.AutoRunnableAgent;
 import Behaviours.ReceiveCountingRequest;
 import Behaviours.ReceiveInitCountingMessage;
 import Behaviours.SendCountingRequest;
@@ -18,6 +19,7 @@ import jade.core.Agent;
  * - delta - ширина интервала слева и справа от Х
  * - eps - необходимая точность
  */
+@AutoRunnableAgent(name = "A", count = 3)
 public class FunctionAgent extends Agent {
     private boolean initiator;
     private boolean transferInitiation;
@@ -42,13 +44,13 @@ public class FunctionAgent extends Agent {
         // Первый агент объявляется инициатором
         setCurX(100);
         setDelta(1);
-        if (this.getLocalName().equals("A1")) {
+        if (this.getLocalName().endsWith("1")) {
             makeInitiator();
-            addBehaviours(100, d -> -d*d+5);
-        } else if (this.getLocalName().equals("A2")) {
-            addBehaviours(100, d -> 2*d+5);
+            addBehaviours(1, d -> -d*d+5);
+        } else if (this.getLocalName().endsWith("2")) {
+            addBehaviours(1, d -> 2*d+5);
         } else {
-            addBehaviours(100, d -> Math.sin(d));
+            addBehaviours(1, Math::sin);
         }
     }
 
@@ -97,7 +99,7 @@ public class FunctionAgent extends Agent {
 
     /**
      * Определить текущее значение Х
-     * @param curX
+     * @param curX - текущий Х
      */
     public void setCurX(double curX) {
         this.curX = curX;
@@ -113,7 +115,7 @@ public class FunctionAgent extends Agent {
 
     /**
      * Сеттер поля delta (поле должно быть неотрицательным)
-     * @param delta
+     * @param delta длина интервала
      */
     public void setDelta(double delta) {
         if (delta > 0) {
